@@ -12,3 +12,9 @@ FROM node:24-alpine
 
 WORKDIR /app
 
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY . .
+
+EXPOSE 3000
+
+CMD ["node", "src/server.js"]
